@@ -4,7 +4,6 @@ import { AppSelectors } from './core/selectors';
 import { AppActions } from './core/actions';
 import { State } from './core/reducer-map';
 import { Observable } from 'rxjs/index';
-import { tap } from 'rxjs/internal/operators';
 
 @Component({
   selector: 'app-root',

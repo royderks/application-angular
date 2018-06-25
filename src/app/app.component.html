@@ -1,5 +1,5 @@
+<!-- Title & Searchbox-->
 <header class="container default-padding">
-  <!-- Title & Searchbox-->
   <div class="row">
     <div class="col-8 offset-2 text-center">
       <h4>Application</h4>
@@ -44,8 +44,8 @@
     </div>
 
     <div class="article" *ngFor="let item of (data | async)">
-      <h4>Article Title ({{item}})</h4>
-      <p>Article Description</p>
+      <h4>Article Title ({{item}}) -- User.name.first User.name.last</h4>
+      <p>Article Description -- User.nat - User.gender</p>
     </div>
   </div>
 </main>
