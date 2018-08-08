@@ -26,6 +26,7 @@ This is a very basic app, we've included bootstrap for the CSS styles, but we ha
 - The searching should be implemented as OR (as in, first OR lastname). Whereas the combination of search and the two filters should be AND.
 - You may add dependencies things that will fit your way of working. However, things should remain to be in a functional style, Pure and Immutable
 - You may refactor things to suit your style, however, if you think about fully refactoring / putting things into subcomponents and that will take you loads of time, you may also leave comments in the code to acknowledge the plan.
+- All the above should be statefull. Imagine this application to be bigger and this to be a place you can search for people and click them (you don't need to implement that). This means that you should be able to move to a next page and come back and the state should stay the same.
 
 ## Final Notes
 The test is about your way of thinking and your code practices. Leave comments where you think some explanation is necessary and code as if it would be production code.
