@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   /* TODO: Define classes for <any> */
   loading: Observable<boolean>;
   data: Observable<Array<any>>;
-  query: Observable<Object<any>>;
+  query: Observable<Object>;
   filters: Observable<Array<any>>;
 
   constructor(private store: Store<State>) {}

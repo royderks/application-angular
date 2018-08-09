@@ -10,7 +10,8 @@ const initialData = (state: AppState) => state.data;
 
 /* TODO: Move functions that mutate the state to different location, find out if they can be moved to Effects */
 const data = (state: AppState) => {
-  const { search, gender, nat } = state.query ? state.query : {}; /* TODO: Define class to solve binding errors */
+  /* TODO: Define class to solve binding errors */
+  const { search, gender, nat } = state.query ? state.query : {search: null, gender: null, nat: null}; 
 
   if (!state.loading) {
     let result = []; /* TODO: Define class */

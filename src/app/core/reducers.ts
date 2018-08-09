@@ -3,7 +3,7 @@ import { AppActions } from './actions';
 export interface AppState {
   loading?: boolean;
   data?: Array<any>; /* TODO: Define class */
-  query?: Object<any>; /* TODO: Define class */
+  query?: any; /* TODO: Define class */
 }
 
 const initialState: AppState = {
