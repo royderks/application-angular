@@ -5,5 +5,6 @@ export const AppActions = {
   LOADING_STOP: `${prefix}_LOADING_STOP`,
   DATA_FETCH: `${prefix}_FETCH_DATA`,
   DATA_FETCH_SUCCESS: `${prefix}_DATA_FETCH_SUCCESS`,
-  DATA_FETCH_ERROR: `${prefix}_DATA_FETCH_ERROR`
+  DATA_FETCH_ERROR: `${prefix}_DATA_FETCH_ERROR`,
+  DATA_FILTER: `${prefix}_DATA_FILTER}`
 };

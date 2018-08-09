@@ -10,6 +10,7 @@
               type="text"
               placeholder="Search"
               class="searchfield form-control text-center"
+              (change)="changeSearch($event)"
             />
           </div>
         </div>
@@ -19,17 +20,11 @@
 
   <!-- Filters -->
   <div class="row">
-    <div class="col-4 offset-2 dropdown">
-      <select class="form-control form-control-sm">
-        <option>Option 01</option>
-        <option>Option 02</option>
-      </select>
-    </div>
-    <div class="col-4 dropdown">
-      <select class="form-control form-control-sm">
-        <option>Option 01</option>
-        <option>Option 02</option>
-        <option>Option 03</option>
+    <div class="col-4 dropdown" *ngFor="let filter of (filters | async)">
+      <!-- TODO: Find out how Angular determines which option will be displayed -->
+      <select name="{{filter.name}}" class="form-control form-control-sm" (change)="changeFilter($event)">
+        <option>Choose {{filter.name}}</option>
+        <option *ngFor="let value of filter.value" value="{{ value }}">{{ value }}</option>
       </select>
     </div>
   </div>
@@ -43,9 +38,9 @@
       Loading...
     </div>
 
-    <div class="article" *ngFor="let item of (data | async)">
-      <h4>Article Title ({{item}}) -- User.name.first User.name.last</h4>
-      <p>Article Description -- User.nat - User.gender</p>
+    <div class="article" *ngFor="let user of (data | async)">
+      <h4>{{user.name.first}} {{user.name.last}}</h4>
+      <p>{{user.nat}} - {{user.gender}}</p>
     </div>
   </div>
 </main>

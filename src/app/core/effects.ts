@@ -7,16 +7,20 @@ import { debounceTime, tap } from 'rxjs/internal/operators';
 
 @Injectable()
 export class AppEffects {
-  constructor(private actions: Actions) {
-  }
+  constructor(private actions: Actions) {}
 
   @Effect()
   public fetchData: Observable<any> = this.actions.ofType(AppActions.DATA_FETCH).pipe(
     debounceTime(1000),
-    switchMap(() =>{
-      // https://randomuser.me/api/?results=500
-      return of({ type: AppActions.DATA_FETCH_SUCCESS, payload: [ 1, 2, 3, 4, 5, 6, 6 ] })
+    /* TODO: Create a different function for the API call */
+    /* TODO: Make this more efficient, are all these switchMap needed? */
+    switchMap(() => fetch('https://randomuser.me/api/?results=500')),
+    switchMap((resp) => resp.json()),
+    switchMap((json) => {
+      return of({ type: AppActions.DATA_FETCH_SUCCESS, payload: json.results })
     }),
     catchError(error => console.log(error) || of({ type: AppActions.DATA_FETCH_ERROR }))
   );
+
+  /* TODO: Find out how the store can be used to trigger Effects to retrieve the data from the store */
 }

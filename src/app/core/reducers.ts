@@ -2,7 +2,8 @@ import { AppActions } from './actions';
 
 export interface AppState {
   loading?: boolean;
-  data?: Array<any>;
+  data?: Array<any>; /* TODO: Define class */
+  query?: Object<any>; /* TODO: Define class */
 }
 
 const initialState: AppState = {
@@ -16,6 +17,12 @@ export const appReducers = (state: AppState = initialState, action: any): AppSta
         ...state,
         loading: false,
         data: action.payload
+      };
+    }
+    case AppActions.DATA_FILTER: {
+      return {
+        ...state,
+        query: {...state.query, ...action.payload}
       };
     }
     case AppActions.DATA_FETCH:
